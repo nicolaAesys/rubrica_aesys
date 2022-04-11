@@ -7,7 +7,6 @@ package com.aesys.rubrica.Login;
 import com.aesys.rubrica.dao.PersonaDao;
 import com.mycompany.modello.Persona;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,9 +33,7 @@ public class InserisciPersonaServlet extends HttpServlet {
             pd.insert(p);
             RequestDispatcher dispatcher = request.getRequestDispatcher("welcome.jsp");
             dispatcher.forward(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InserisciPersonaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(InserisciPersonaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
