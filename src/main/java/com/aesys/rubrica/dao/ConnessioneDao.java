@@ -19,7 +19,11 @@ public class ConnessioneDao {
         Class.forName("org.postgresql.Driver");
         String url = "jdbc:postgresql://localhost:5432/postgres";
         Properties propr = new Properties();
+<<<<<<< HEAD
 
+=======
+        /* dati */
+>>>>>>> 161eeb0b552a5df9cc8b80762d78c786b5aaf9b4
         Connection conn = DriverManager.getConnection(url, propr);
         return conn;
     }
