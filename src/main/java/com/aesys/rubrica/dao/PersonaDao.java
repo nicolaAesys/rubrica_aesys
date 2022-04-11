@@ -4,6 +4,7 @@
  */
 package com.aesys.rubrica.dao;
 
+
 import com.mycompany.modello.Persona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 
+
 /**
  *
  * @author Aesys
@@ -21,7 +23,9 @@ import javax.servlet.RequestDispatcher;
 public class PersonaDao {
     
     
-    public List<Persona> getListapersone() throws SQLException, ClassNotFoundException{
+    
+    
+    public static List<Persona> getListapersone() throws SQLException, ClassNotFoundException{
         
         
      List<Persona> persone = new ArrayList<>();
@@ -39,6 +43,19 @@ public class PersonaDao {
     
         }
     return persone;
+    }
+    
+    public static void updateContact(String user_proprietary, String name, String surname, String phoneNew) throws SQLException, ClassNotFoundException{
+        System.out.println("Enter");
+        Connection con = ConnessioneDao.getConnection();
+        String query = "UPDATE contacts SET phone="+phoneNew+" WHERE name=? AND surname=? AND user_proprietary=?";
+        PreparedStatement stat = con.prepareStatement(query);
+        stat.setString(1, name);
+        stat.setString(2, surname);
+        stat.setString(3, user_proprietary);
+        
+        stat.executeUpdate();
+        System.out.println("Success");
     }
     
     public boolean insert(Persona persona) throws ClassNotFoundException, SQLException{
@@ -61,5 +78,42 @@ public class PersonaDao {
          //   dispatcher.forward(request, response);
     return true;
     }
+    
+    public boolean delete(Persona persona) throws ClassNotFoundException, SQLException{
+        
+         Connection conn = ConnessioneDao.getConnection();
+         
+        Statement stmt=conn.createStatement();
+            
+            stmt.execute("DELETE FROM persone WHERE name = "+ persona.getNome()+ ";");
+            
+            stmt.close();
+        
+        return true;
+    }
+    
+    public static ArrayList<Persona> getContactList(String username) throws ClassNotFoundException, SQLException{
+        
+        ArrayList<Persona> contactList = new ArrayList<>();
+        
+      Connection con = ConnessioneDao.getConnection();
+        
+        String query = "SELECT * FROM contacts WHERE user_proprietary=?";
+        PreparedStatement stat = con.prepareStatement(query);
+        
+        stat.setString(1, username);
+        ResultSet res = stat.executeQuery();
+        
+        while(res.next()){
+            String name = res.getString("name");
+            String surname = res.getString("surname");
+            String phone = res.getString("phone");
+            
+            contactList.add(new Persona(name, surname, phone));
+        }
+        
+        return contactList;
+    }
+    
     
 }
