@@ -16,7 +16,7 @@
            Insert the datas of new user <br/>
             Name    : <input type="text" name="nome"> <br/>
             Surname: <input type="text" name="cognome"> <br/>
-            Telephone number: <input type="text" name="numero"> <br/>
+            Phone number: <input type="text" name="numero"> <br/>
             <input type="submit" value="Add">
     </body>
 </html>
