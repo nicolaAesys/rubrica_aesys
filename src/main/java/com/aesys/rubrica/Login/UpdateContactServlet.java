@@ -43,11 +43,12 @@ public class UpdateContactServlet extends HttpServlet {   @Override
                     contactUpdated.toString()
                     + " Succesfully Updated!");
             session.setAttribute("contactList", PersonaDao.getContactList(username));
+            response.sendRedirect ("update.jsp");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-      response.sendRedirect ("update.jsp");
+      
         }
         
