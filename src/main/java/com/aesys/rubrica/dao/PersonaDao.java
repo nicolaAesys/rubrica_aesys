@@ -63,18 +63,33 @@ public class PersonaDao {
        // String query="SELECT * FROM persone";
          Connection conn = ConnessioneDao.getConnection();
          
-        Statement stmt=conn.createStatement();
+        PreparedStatement stmt=conn.prepareStatement("INSERT INTO persone VALUES (?,?,?)");
         
 
-    stmt.execute("INSERT INTO persone VALUES ('" + persona.getNome()+ "', '" + persona.getCognome() +"', " +persona.getTelefono()+ ")");
- 
-    stmt.close();
+            stmt.execute();
+            stmt.setString(1,persona.getNome());
+            stmt.setString(2, persona.getCognome());
+            stmt.setString(3, persona.getTelefono());
+            stmt.close();
 
-    conn.close();
+            conn.close();
         
        // RequestDispatcher dispatcher = request.getRequestDispatcher("welcome.jsp");
          //   dispatcher.forward(request, response);
     return true;
+    }
+    
+    public boolean delete(Persona persona) throws ClassNotFoundException, SQLException{
+        
+         Connection conn = ConnessioneDao.getConnection();
+         
+        Statement stmt=conn.createStatement();
+            
+            stmt.execute("DELETE FROM persone WHERE name = "+ persona.getNome()+ ";");
+            
+            stmt.close();
+        
+        return true;
     }
     
     public static ArrayList<Persona> getContactList(String username) throws ClassNotFoundException, SQLException{

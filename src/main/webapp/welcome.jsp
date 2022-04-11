@@ -32,7 +32,7 @@
 
         <h1>Welcome</h1>
         <form action="insert.jsp" method="get">
-            <br>   <input type="submit" value="Aggiungicontatto"></br>
+            <br>   <input type="submit" value="Add contact"></br>
             <p>
                 
                 
@@ -44,6 +44,12 @@
                         
         <form action="Logout" method="get">
             <input type="submit" value="Logout"></br></br>
+
+            <form action="eliminapersona" method="post">
+                <input type="submit" value="Delete"></br></br>
+
+                <form action="update.jsp" method="post">
+                    <input type="submit" value="Update"></br></br>
 
             </body>
             </html>
