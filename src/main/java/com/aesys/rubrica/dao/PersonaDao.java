@@ -60,7 +60,7 @@ public class PersonaDao {
     return true;
     }
     
-    public boolean delite(Persona persona) throws ClassNotFoundException, SQLException{
+    public boolean delete(Persona persona) throws ClassNotFoundException, SQLException{
         
          Connection conn = ConnessioneDao.getConnection();
          
