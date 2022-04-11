@@ -13,10 +13,10 @@
     </head>
     <body>
         <form action="inserisci" method="post">
-           inserisci i dati del nuovo utente <br/>
-            Nome    : <input type="text" name="nome"> <br/>
-            Cognome: <input type="text" name="cognome"> <br/>
-            numero: <input type="text" name="numero"> <br/>
-            <input type="submit" value="aggiungi">
+           Insert the datas of new user <br/>
+            Name    : <input type="text" name="nome"> <br/>
+            Surname: <input type="text" name="cognome"> <br/>
+            Phone number: <input type="text" name="numero"> <br/>
+            <input type="submit" value="Add">
     </body>
 </html>
