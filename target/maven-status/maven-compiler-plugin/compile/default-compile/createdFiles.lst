@@ -4,5 +4,6 @@ com\aesys\rubrica\dao\PersonaDao.class
 com\aesys\rubrica\dao\AccessiDao.class
 com\aesys\rubrica\Login\LoginServlet.class
 com\aesys\rubrica\dao\ConnessioneDao.class
+com\aesys\rubrica\Login\UpdateContactServlet.class
 com\mycompany\modello\Persona.class
 com\aesys\rubrica\Filtri\folder\LoginFilter.class
