@@ -20,6 +20,10 @@
         <servlet-name>InserisciPersonaServlet</servlet-name>
         <servlet-class>com.aesys.rubrica.Login.InserisciPersonaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>com.aesys.rubrica.Login.UpdateContactServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>InserisciPersonaServlet</servlet-name>
         <url-pattern>/inserisci</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateContactServlet</servlet-name>
+        <url-pattern>/Update</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

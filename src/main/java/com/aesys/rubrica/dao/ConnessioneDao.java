@@ -19,7 +19,8 @@ public class ConnessioneDao {
         Class.forName("org.postgresql.Driver");
         String url = "jdbc:postgresql://localhost:5432/postgres";
         Properties propr = new Properties();
-        /* credenziali */
+            propr.setProperty("user", "postgres");
+        propr.setProperty("password", "admin");
         Connection conn = DriverManager.getConnection(url, propr);
         return conn;
     }
