@@ -62,4 +62,17 @@ public class PersonaDao {
     return true;
     }
     
+    public boolean delete(Persona persona) throws ClassNotFoundException, SQLException{
+        
+         Connection conn = ConnessioneDao.getConnection();
+         
+        Statement stmt=conn.createStatement();
+            
+            stmt.execute("DELETE FROM persone WHERE name = "+ persona.getNome()+ ";");
+            
+            stmt.close();
+        
+        return true;
+    }
+    
 }
